@@ -15,21 +15,25 @@ public class Masyvo_vidurkis {
 	public static void main(String[] args) throws IOException {
 		String fileRead = "C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\arrays\\txt\\numbers.txt";
 		File file = new File(fileRead);
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		
+		BufferedReader br = new BufferedReader(new FileReader(file));	
+
 		int linesInFile = 0;
 		while (br.readLine() != null) {
 			linesInFile++;
 		}
 		
+		br.close();
+		
 		int[] array = new int[linesInFile];		
 		int b =0;
-		String st="";
-
-		while ( (st = br.readLine()) != null) {
-			array[b++]= Integer.parseInt(st);
-			//b++;
+		String st;
+		BufferedReader br2 = new BufferedReader(new FileReader(file));	
+		while ( (st = br2.readLine()) != null) {
+			array[b]= Integer.parseInt(st);
+			b++;
 		}		
+		br2.close();
+		
 		System.out.println("File read");
 		br.close();
 		
