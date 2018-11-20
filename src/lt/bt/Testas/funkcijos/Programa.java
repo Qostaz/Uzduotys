@@ -19,7 +19,9 @@ public class Programa {
 		while (!stop) {
 			print("Pasirinkite koki veiksma norite atlikti:");
 			print("1 Apskaiciuoti masyvo vidurki.");
-			print("2 Pasalinti masyvo reiksmes mazesnes arba didesnes uz masvyvo vidurki");
+			print("2 Pasalinti masyvo reiksmes mazesnes arba didesnes uz masvyvo vidurki.");
+			print("3 Neigoamus skaicius istrinti is masyvo ir perkelti i kita masyva.");
+			print("4 Isrikiuokite masyvo reiksmes didejimo arba mazejimo reiksme.");
 			int selection = reader.nextInt();
 			switch (selection) {
 				case 1:
@@ -28,6 +30,12 @@ public class Programa {
 				case 2:
 					removeIntMoreOrLessThanMeanFromArray();  //  read C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\arrays\\txt\\numbers.txt
 					break;									// write C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\arrays\\txt\\numbersMoreThanMean.txt
+				case 3:
+					removeNegativeIntFromArray();  		
+					break;
+				case 4:
+					arrayMinMax();  		
+					break;	 
 				default:
 					break;
 			}
@@ -79,6 +87,64 @@ public class Programa {
 			print("Duomenys irasyti");
 		}		
 	}	
+	
+	
+	private static void removeNegativeIntFromArray() throws IOException {
+		print("Nurodykite kelia iki masyvo:");
+		String fileRead = reader.next();
+		int numbersInFile = getIntNumberFromFile(fileRead);
+		int[] skaiciai = getIntArrayFromFile(fileRead, numbersInFile);
+		double zero = 0;
+		boolean selectMoreOrLess = false;
+		int negativeArrayLength = getArrayLengthMoreOrLess(skaiciai, selectMoreOrLess, zero);		
+		int[] negativeArray = getArrayMoreOrLess(skaiciai, false, negativeArrayLength, zero);		
+		int[] positiveArray = getArrayMoreOrLess(skaiciai, true, skaiciai.length - negativeArrayLength, zero);
+		print("Neigiami skaiciai is masyvo:");
+		print(printArrayAsString(negativeArray)  + "\n");
+		print("Teigiami skaiciai is masyvo:");
+		print(printArrayAsString(positiveArray)  + "\n");
+		print("Ar norite irasyti masyvus i failus? (true/false)");
+		boolean selectIfWrite = reader.nextBoolean();
+		if (selectIfWrite) {
+			print("Nurodykite kelia iki aplanko, kuriame turetu buti issaugoti masyvai:");
+			String writeFilePath = reader.next();
+			String negativePatch = writeFilePath + "\\numbers_negative.txt";
+			String positivePatch = writeFilePath + "\\numbers_positive.txt";
+			writeArrayToFile(negativeArray, negativePatch);
+			writeArrayToFile(positiveArray, positivePatch);
+			print("Duomenys irasyti");
+		}
+		
+	}
+	
+	
+	public static void arrayMinMax() throws IOException {
+		print("Nurodykite kelia iki masyvo:");
+		String fileRead = reader.next();
+		int numbersInFile = getIntNumberFromFile(fileRead);
+		int[] skaiciai = getIntArrayFromFile(fileRead, numbersInFile);
+		print("Nurodykite didejimo (true) ar mazejimo (false) tvarka norite isrikiuoti pasirinkto masyvo reiksmes?");
+		boolean selectMinOrMax = reader.nextBoolean();	
+		orderArrayMinOrMax(skaiciai, selectMinOrMax);
+		if (selectMinOrMax) {
+			print("Masyvas isrikiuotas didejimo tvarka:");
+			print(printArrayAsString(skaiciai)  + "\n");
+		} else {
+			print("Masyvas isrikiuotas mazejimo tvarka:"); 
+			print(printArrayAsString(skaiciai)  + "\n");
+		}
+		print("Ar norite irasyti masyva i faila? (true/false)");
+		boolean selectIfWrite = reader.nextBoolean();
+		if (selectIfWrite) {
+			print("Nurodykite kelia iki aplanko, kuriame turetu buti issaugotas masyvas:");
+			String writeFilePath = reader.next();
+			String patch = writeFilePath + "\\numbers_ordered.txt";
+			writeArrayToFile(skaiciai, patch);
+			print("Duomenys irasyti");
+		}
+		
+		
+	}
 	
 
 	private static int getIntNumberFromFile(String filePath) throws IOException {
@@ -177,6 +243,27 @@ public class Programa {
 		}
 		bw.close();
 		fw.close();
+	}
+	
+	private static void orderArrayMinOrMax(int[] array, boolean selectMinOrMax) throws IOException{
+		for(int i = 0; i<array.length; i++) {
+			for(int o =i+1; o<array.length; o++) {
+				int skaicius1 = array[i];
+				int skaicius2 = array[o];			
+				if (selectMinOrMax) {
+					if (skaicius1 > skaicius2) {
+						array[o] = skaicius1;
+						array[i] = skaicius2;
+					}
+				
+				} else {
+					if (skaicius1 < skaicius2) {
+						array[o] = skaicius1;
+						array[i] = skaicius2;
+					}
+				}
+			}
+		}
 	}
 
 }
