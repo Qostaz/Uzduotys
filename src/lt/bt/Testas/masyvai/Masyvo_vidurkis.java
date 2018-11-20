@@ -1,4 +1,4 @@
-package lt.bt.Testas;
+package lt.bt.Testas.masyvai;
 
 
 //import java.util.ArrayList;

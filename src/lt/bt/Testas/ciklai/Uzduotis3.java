@@ -1,4 +1,4 @@
-package lt.bt.Testas;
+package lt.bt.Testas.ciklai;
 
 import java.io.BufferedReader;
 import java.io.IOException;
