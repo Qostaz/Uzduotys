@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class Skaitymas_is_failo {
+public class Skaiciaus_is_masyvo_grazinimas {
 
 	public static void main(String[] args) {
-		String filePath = "C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\tryCatch\\notFound.txt";	
+		String filePath = "C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\tryCatch\\numbers.txt";	
 		File file = new File(filePath);
 		Scanner scan =null ;
 		
@@ -23,9 +23,9 @@ public class Skaitymas_is_failo {
 			} catch (FileNotFoundException e) {
 				fileExists= false;
 				print("Nurodyto failo nera. Prasome nurodyti failo pavadinimas su keliu iki jo:");
-				filePath = scanForPath();         //C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\tryCatch\\numbers.txt
+				filePath = scanForPath();        
 			}
-		}		
+		}
 		
 		int linesInFile = 0;		
 		while (scan.hasNextInt()) {
@@ -44,9 +44,8 @@ public class Skaitymas_is_failo {
 			array[b]= scan.nextInt();
 			b++;
 		}
-		
-		print("Faile esantys skaiciai");
-		print(printArrayAsString(array));			      
+				
+		printNumberFromArray(array);
 		scan.close();
 	}	
 	
@@ -64,14 +63,18 @@ public class Skaitymas_is_failo {
 	}
 	
 	
-	private static String printArrayAsString(int[] array) {
-		String intAsString = "";
-		for(int i=0; i<array.length; i++) {
-			intAsString += array[i];
-			if (i !=array.length-1) {
-				intAsString += ", ";
-			}
+	private static void printNumberFromArray(int[] array) {
+		Scanner reader = null;
+		try {
+			reader = new Scanner(System.in);
+			print("Pasirinkite skaiciu kuri norite atspausdinti:");
+			int selection = reader.nextInt();
+			int arrayIndex = selection - 1 ;
+			print(String.valueOf(array[arrayIndex]));
+		} catch (ArrayIndexOutOfBoundsException e){
+			print("Pasirinktas skaicius nera numatytame intervale. Pasirinktie skaiciu is intervalo [1,2,...99,100] ir bandykite dar karta.");
+			printNumberFromArray(array);
 		}
-		return intAsString;
+		reader.close();
 	}
 }
