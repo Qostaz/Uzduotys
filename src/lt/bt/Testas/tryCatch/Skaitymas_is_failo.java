@@ -1,88 +1,42 @@
 package lt.bt.Testas.tryCatch;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Skaitymas_is_failo {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		String filePath = "C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\tryCatch\\notFound.txt";
-		String filePath2 ="";
-		File file = new File(filePath);
-		Scanner scan = null;
+		String filePath = "C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\tryCatch\\notFound.txt";		
+		Scanner scan =null ;
 		boolean fileExists = false;
+
+		
 		while (!fileExists) {
 			try {
 				fileExists = true;
+				File file = new File(filePath);
 				scan = new Scanner(new FileReader(file));
-				
-
-				
+				print("File read");
 			} catch (FileNotFoundException e) {
-				
-				print("Nurodyto failo nrea. Prasome nurodyti failo pavadinimas su keliu iki jo:");
-				filePath = scanForPath();
-				print(filePath);
 				fileExists= false;
-				//scan.close();
-				//return;
-				
+				print("Nurodyto failo nera. Prasome nurodyti failo pavadinimas su keliu iki jo:");
+				filePath = scanForPath();         //C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\tryCatch\\numbers.txt
 			}
 		}
 		
-		
-		
-		
-		int[] array = new int[100];		
+		int[] array = new int[100];	
 		int b =0;
-		while (scan.hasNextLine()) {
+		while (scan.hasNextInt()) {
 			array[b]= scan.nextInt();
 			b++;
-		}	
-		
-		print(printArrayAsString(array));
-		
-		
-		
-		scan.close();
-		
-		
-
-
-		/*while (true) {
-			try {
-				scan = new Scanner(new FileReader(file));	
-				while (scan.hasNext()) {
-					array[b]= scan.nextInt();
-					b++;
-				}
-				printArrayAsString(array);
-			} catch (FileNotFoundException e) {
-				print("Nurodyto failo nrea. Prasome nurodyti failo pavadinimas su keliu iki jo:");
-				filePath = scanForPath();
-
-				
-			}
-		}*/
-		print("File read");
-
-		
-		
-		
-
-			      // C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\tryCatch\\numbers.txt
-
 		}
 		
-	
-
-		
-
-	
+		print("Faile esantys skaiciai");
+		print(printArrayAsString(array));			      
+		scan.close();
+	}	
 	
 	
 	private static void print(String text) {
@@ -93,29 +47,8 @@ public class Skaitymas_is_failo {
 	private static String scanForPath () {
 		Scanner reader = new Scanner(System.in);
 		String path = reader.next();
-		reader.close();
+		//reader.close();
 		return path;
-	}
-	
-	private static int[] getIntArrayFromFile(String filePath, int arrayLength) {
-		String filep = filePath;
-		int number = arrayLength;
-		File file = new File(filep);
-		int[] array = new int[arrayLength];	
-		int b =0;
-		try (Scanner scan = new Scanner(new FileReader(file))) {
-			while (scan.hasNext()) {
-				array[b]= scan.nextInt();
-				b++;
-			}			
-		} catch (FileNotFoundException e) {
-			print("Nurodyto failo nrea. Prasome nurodyti failo pavadinimas su keliu iki jo:");
-			filep = scanForPath();
-			getIntArrayFromFile(filep, number);
-		}
-		
-
-		return array;
 	}
 	
 	
@@ -129,5 +62,4 @@ public class Skaitymas_is_failo {
 		}
 		return intAsString;
 	}
-
 }
