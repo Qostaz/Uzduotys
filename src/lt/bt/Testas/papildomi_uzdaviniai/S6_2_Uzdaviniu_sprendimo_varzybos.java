@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
-public class Uzdaviniu_sprendimo_varzybos {
+public class S6_2_Uzdaviniu_sprendimo_varzybos {
 
 	public static void main(String[] args) throws IOException {
 		String filePath = "C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\papildomu_uzd\\Duomenys.txt";

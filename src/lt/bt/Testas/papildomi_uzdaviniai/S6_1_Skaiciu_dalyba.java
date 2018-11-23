@@ -2,7 +2,7 @@ package lt.bt.Testas.papildomi_uzdaviniai;
 
 import java.util.Scanner;
 
-public class Skaiciu_dalyba {
+public class S6_1_Skaiciu_dalyba {
 
 	public static void main(String[] args) {
 

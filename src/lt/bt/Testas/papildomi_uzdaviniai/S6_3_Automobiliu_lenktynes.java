@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class Automobiliu_lenktynes {
+public class S6_3_Automobiliu_lenktynes {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
