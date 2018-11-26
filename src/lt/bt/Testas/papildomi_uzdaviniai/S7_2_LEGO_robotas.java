@@ -78,7 +78,7 @@ public class S7_2_LEGO_robotas {
 			print("Neuzteks");
 			bw.write("\r\nNeuzteks");
 		}
-
+		fw.close();
 		bw.close();
 		reader.close();
 	}
