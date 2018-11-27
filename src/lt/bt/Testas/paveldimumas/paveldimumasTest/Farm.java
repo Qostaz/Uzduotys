@@ -1,4 +1,4 @@
-package lt.bt.Testas.paveldimumas.paveldimumas.paveldimumasTest;
+package lt.bt.Testas.paveldimumas.paveldimumasTest;
 
 import lt.bt.Testas.paveldimumas.paveldimumas.Animal;
 import lt.bt.Testas.paveldimumas.paveldimumas2.Cat;
