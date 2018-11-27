@@ -8,7 +8,11 @@ public class Chicken extends Animal{
 		this.sound = sound;
 	}
 	
+	
+	//ne override
+	/*
+	@Override
 	public String toString(){
 		return sound + " " + sound;
-	}
+	}*/
 }

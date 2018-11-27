@@ -8,6 +8,7 @@ public class Sheep  extends Animal {
 		this.sound = sound;
 	}
 	
+	@Override
 	public String toString(){
 		return sound + " " + sound;
 	}

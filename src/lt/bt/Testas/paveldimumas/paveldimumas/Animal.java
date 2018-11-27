@@ -9,6 +9,10 @@ public class Animal {
 	
 	public void print(){
 		
-		System.out.println(sound);
+		System.out.println("no sound");
 	}	
+	
+	public String toString(){
+		return "no sound";
+	}
 }
