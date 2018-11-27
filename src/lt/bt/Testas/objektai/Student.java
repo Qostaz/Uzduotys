@@ -64,6 +64,5 @@ public class Student {
 			}
 		}
 		return missedClasses;
-	}
-	
+	}	
 }
