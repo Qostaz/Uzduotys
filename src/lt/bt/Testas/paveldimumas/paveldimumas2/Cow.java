@@ -1,6 +1,6 @@
-package lt.bt.Testas.paveldimumas2;
+package lt.bt.Testas.paveldimumas.paveldimumas2;
 
-import lt.bt.Testas.paveldimumas.Animal;
+import lt.bt.Testas.paveldimumas.paveldimumas.Animal;
 
 public class Cow  extends Animal {
 	public Cow(String sound) {

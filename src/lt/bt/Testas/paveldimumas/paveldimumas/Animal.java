@@ -1,4 +1,4 @@
-package lt.bt.Testas.paveldimumas;
+package lt.bt.Testas.paveldimumas.paveldimumas;
 
 public class Animal {
 	protected String sound;

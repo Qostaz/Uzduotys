@@ -1,11 +1,11 @@
-package lt.bt.Testas.paveldimumasTest;
+package lt.bt.Testas.paveldimumas.paveldimumas.paveldimumasTest;
 
-import lt.bt.Testas.paveldimumas2.Cat;
-import lt.bt.Testas.paveldimumas2.Dog;
-import lt.bt.Testas.paveldimumas2.Cow;
-import lt.bt.Testas.paveldimumas2.Sheep;
-import lt.bt.Testas.paveldimumas2.Chicken;
-import lt.bt.Testas.paveldimumas.Animal;
+import lt.bt.Testas.paveldimumas.paveldimumas.Animal;
+import lt.bt.Testas.paveldimumas.paveldimumas2.Cat;
+import lt.bt.Testas.paveldimumas.paveldimumas2.Chicken;
+import lt.bt.Testas.paveldimumas.paveldimumas2.Cow;
+import lt.bt.Testas.paveldimumas.paveldimumas2.Dog;
+import lt.bt.Testas.paveldimumas.paveldimumas2.Sheep;
 
 public class Farm {
 
