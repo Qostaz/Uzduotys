@@ -87,7 +87,7 @@ public class Test {
 						answer = askForConfirmation();	
 						for (int i = 0; i<array.length; i++) {
 							System.out.println(array[i].getClass().getSimpleName());
-							System.out.println("Krastines/spindulio ilgis: " + df2.format(array[i].calcPerimeterFromArea(answer)) + "\n");
+							System.out.println("Perimetras: " + df2.format(array[i].calcPerimeterFromArea(answer)) + "\n");
 						}
 						break;						
 					case 2:
@@ -95,7 +95,7 @@ public class Test {
 						answer = askForConfirmation();	
 						for (int i = 0; i<array.length; i++) {
 							System.out.println(array[i].getClass().getSimpleName());
-							System.out.println("Krastines/spindulio ilgis: " + df2.format(array[i].calcPerimeterFromPerimeter(answer)) + "\n");
+							System.out.println("Perimetras: " + df2.format(array[i].calcPerimeterFromPerimeter(answer)) + "\n");
 						}						
 						break;	
 					default:
