@@ -1,0 +1,27 @@
+Tekstiniame faile (DuomenysA.txt)yra surašyta miesto troleibuso maršruto atstumai (metrais) tarp
+visu maršruto stotelių. Duomenų faile pirmas skaicius nurodo kiek maršrute yra stotelių. 
+Kiti skaiciai nurodo atstumą tarp stotelių.
+Parašykite programa, kuri apskaiciuotų troleibuso maršruto ilgį, 
+ilgiausia distancija tarp stotelių,
+trumpiausia distancija tarp stotelių.
+Rezultatus spausdinti rezultatų faile "Rezultatai.txt"
+
+------------
+Duomenu failas:
+10
+1400 950 750 1500 850 2300 1000 750 900 700
+
+Rezultatų failas
+Maršruto atstumas: 11100 m
+Trumpiausias atstumas: 700 m
+Ilgiausias atstumas: 2300 m
+
+----------------
+
+Reikalavimai programai:
+Java klasę pavadinti: VariantasA
+Programa turi turėti metodus skaitymui ir rašymui į failą. 
+Apsauga, jeigu tekstinis duomenų failas neegzistuoja.
+Funkcijas ieškoti ilgiausio ir trumpiauso atstumo
+Funkcija suskaičiuoti troleibuso maršruto atstumą
+Iš main metodo kviečiame kiti metodai ir funkcijos.

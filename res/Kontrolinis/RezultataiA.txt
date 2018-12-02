@@ -1,0 +1,3 @@
+Maršruto atstumas: 11100 m
+Trumpiausias atstumas: 700 m
+Ilgiausias atstumas: 2300 m

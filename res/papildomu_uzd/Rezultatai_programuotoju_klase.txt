@@ -1,0 +1,11 @@
+Sudarytos klases mokiniu sarasas:
+Jonas_Jonaitis 1
+Andrijauskaite_Agne 1
+Gulbinas_Kestas 1
+Kumponas_Ervidas 1
+Ziulpauskas_Azuolas 1
+Petras_Petraitis 2
+Bruzas_Darius 2
+Pranauskyte_Meda 2
+Vasaris_Liudas 2
+Eicinaite_Ema 2
