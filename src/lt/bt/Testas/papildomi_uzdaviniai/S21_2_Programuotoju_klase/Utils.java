@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -43,70 +45,56 @@ public class Utils {
 		return reader;
 	}
 	
-	public static void writeToFile(Mokinys[] mokiniai, String fileWrite) throws IOException {	
+	public static void writeToFile(List<Mokinys> mokiniuSarasas, String fileWrite) throws IOException {	
 		FileWriter fw = new FileWriter(fileWrite);
 		BufferedWriter bw = new BufferedWriter(fw);
 		
 		bw.write("Sudarytos klases mokiniu sarasas:\r\n");
-		for (int i = 0; i<mokiniai.length; i++) {
-			bw.write(mokiniai[i].vardasPavarde + " " + mokiniai[i].prioritetas + "\r\n");
+		for (int i = 0; i<mokiniuSarasas.size(); i++) {
+			bw.write(mokiniuSarasas.get(i).getVardasPavarde() + " " + mokiniuSarasas.get(i).getPrioritetas() + "\r\n");
 		}	
 		bw.close();	
 		fw.close();
 		System.out.println("Write done");
 	}
 	
-	public static void printResult(Mokinys[] mokiniai) {			
+	public static void printResult(List<Mokinys> mokiniuSarasas) {			
 		System.out.println("Sudarytos klases mokiniu sarasas:");
-		for (int i = 0; i<mokiniai.length; i++) {
-			System.out.println(mokiniai[i].vardasPavarde + " " + mokiniai[i].prioritetas);
+		for (int i = 0; i<mokiniuSarasas.size(); i++) {
+			System.out.println(mokiniuSarasas.get(i).getVardasPavarde() + " " + mokiniuSarasas.get(i).getPrioritetas());
 		}
 	}
 	
-	public static void sortData(Mokinys[] mokiniai) {
-	    for (int i = 0; i<mokiniai.length; i++) {
-	    	for (int j = i+1; j<mokiniai.length; j++) {
-	    		Mokinys obj1 = mokiniai[i];
-	    		Mokinys obj2 = mokiniai[j];
-	    		if (obj1.prioritetas > obj2.prioritetas) {
-	    			mokiniai[i] = obj2;
-	    			mokiniai[j] = obj1;
+	public static void sortData(List<Mokinys> mokiniuSarasas) {
+	    for (int i = 0; i<mokiniuSarasas.size(); i++) {
+	    	for (int j = i+1; j<mokiniuSarasas.size(); j++) {
+	    		Mokinys obj1 = mokiniuSarasas.get(i);
+	    		Mokinys obj2 = mokiniuSarasas.get(j);
+	    		if (obj1.getPrioritetas() > obj2.getPrioritetas()) {
+	    			mokiniuSarasas.set(i, obj2);
+	    			mokiniuSarasas.set(j, obj1);
 	    		}
 	    	}
 	    }
 	}
 	
-	public static Mokinys[] trimData(Mokinys[] mokiniai, int maxNumber) {
-		Mokinys[] tempArray = new Mokinys[maxNumber];
+	public static List<Mokinys> trimData(List<Mokinys> mokiniuSarasas, int maxNumber) {
+		List<Mokinys> tempList = new ArrayList<Mokinys>();
 		int count=0;
 		while (count < maxNumber) {
-			tempArray[count] = mokiniai[count];
+			tempList.add(count, mokiniuSarasas.get(count));
 			count++;
 		}
-		return tempArray;		
+		return tempList;		
 	}
 	
-	public static Mokinys[] addNewMokinys (Mokinys[] mokiniai, String vardasPavarde, int prioritetas ) {
-		Mokinys[] tempArray = new Mokinys[mokiniai.length+1];
-		for (int i = 0; i<mokiniai.length; i++) {
-			tempArray[i] = mokiniai[i];
-		}
-		tempArray[mokiniai.length+1] = new Mokinys();
-		tempArray[mokiniai.length+1].vardasPavarde = vardasPavarde;
-		tempArray[mokiniai.length+1].prioritetas = prioritetas;
-		return tempArray;
+	public static void addNewMokinys(List<Mokinys> mokiniuSarasas, String vardasPavarde, int prioritetas ) {
+		Mokinys temp = new Mokinys(vardasPavarde, prioritetas);
+		mokiniuSarasas.add(temp);
 	}
 	
-	public static Mokinys[] removeMokinys (Mokinys[] mokiniai, int indexNumber) {
-		Mokinys[] tempArray = new Mokinys[mokiniai.length-1];
-		int count =0;
-		for (int i = 0; i<mokiniai.length; i++) {
-			if (i != indexNumber) {
-				tempArray[count] = mokiniai[i];
-				count++;
-			}
-		}
-		return tempArray;
+	public static void removeMokinys (List<Mokinys> mokiniuSarasas, int indexNumber) {		
+		mokiniuSarasas.remove(indexNumber);
 	}
 	
 

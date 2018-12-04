@@ -2,6 +2,8 @@ package lt.bt.Testas.papildomi_uzdaviniai.S21_2_Programuotoju_klase;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Collections;
+import java.util.*;
 
 public class MokiniuAtrinkimas {
 
@@ -13,24 +15,22 @@ public class MokiniuAtrinkimas {
 		
 		int maxMokiniu = reader.nextInt();
 		int totalMokiniu = reader.nextInt();
-		Mokinys[] mokiniuMasyvas = new Mokinys[totalMokiniu];
 		
-
-		for (int i =0; i<mokiniuMasyvas.length; i++) {
-			mokiniuMasyvas[i] = new Mokinys();
-			mokiniuMasyvas[i].vardasPavarde = reader.next();
-			mokiniuMasyvas[i].prioritetas = reader.nextInt();
+		List<Mokinys> mokiniuSarasas = new ArrayList<Mokinys>();
+		for (int i =0; i<totalMokiniu; i++) {
+			Mokinys temp = new Mokinys(reader.next(), reader.nextInt());		
+			mokiniuSarasas.add(i, temp);
 		}	
 	
 		//Prideda nauja mokini
-		//mokiniuMasyvas = Utils.addNewMokinys(mokiniuMasyvas, "A_Kostas", 1);		
+		Utils.addNewMokinys(mokiniuSarasas, "A_Kostas", 1);		
 		
 		//Pasalina mokini
-		//mokiniuMasyvas = Utils.removeMokinys(mokiniuMasyvas, 2);
-				
+		Utils.removeMokinys(mokiniuSarasas, 2);
 		
-		Utils.sortData(mokiniuMasyvas);
-		Mokinys[] atrinktiMokiniai = Utils.trimData(mokiniuMasyvas, maxMokiniu);		
+		Collections.sort(mokiniuSarasas);  //sort su Comparable interface
+		//Utils.sortData(mokiniuSarasas);  //sort su metodu
+		List<Mokinys> atrinktiMokiniai = Utils.trimData(mokiniuSarasas, maxMokiniu);		
 				
 		Utils.printResult(atrinktiMokiniai);
 		String fileWrite = "C:\\Users\\kosta\\eclipse-workspace\\Uzduotys\\res\\papildomu_uzd\\Rezultatai_programuotoju_klase.txt";
