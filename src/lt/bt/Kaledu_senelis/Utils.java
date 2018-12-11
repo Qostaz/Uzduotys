@@ -49,6 +49,7 @@ public class Utils {
 		FileWriter fw = new FileWriter(fileWrite);
 		BufferedWriter bw = new BufferedWriter(fw);
 		
+		bw.write("Vardas, Pavardė, Adresas, Dovana" +"\r\n");
 		for (int i = 0; i<dovanuSarasas.size(); i++) {
 			bw.write(dovanuSarasas.get(i).getVardas() + ", " + dovanuSarasas.get(i).getPavarde() + ", " + dovanuSarasas.get(i).getAdresas() + ", " + dovanuSarasas.get(i).getDovana() +"\r\n");
 		}		
@@ -56,6 +57,39 @@ public class Utils {
 		bw.close();	
 		fw.close();
 		System.out.println("Write done");
+	}
+	
+	public static void writeToFileUzsakymas(List<Zaislas> zaislai) throws IOException {
+		String fileWrite = enterPath();
+		FileWriter fw = new FileWriter(fileWrite);
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		bw.write("Žaislas, Kiekis" +"\r\n");
+		for (int i = 0; i<zaislai.size(); i++) {
+			bw.write(zaislai.get(i).getZaisloPavadinimas() + ", " + zaislai.get(i).getKiekis() +"\r\n");
+		}		
+	
+		bw.close();	
+		fw.close();
+		System.out.println("Write done");
+		
+	}
+	
+	public static void checkForIfExist(List <Zaislas> sarasas, String name) {
+		int count =0;
+		if(!sarasas.isEmpty()) {
+			for (Zaislas a : sarasas) {
+				if (a.getZaisloPavadinimas().equals(name)) {
+					a.setKiekis(a.getKiekis()+1);
+					count++;							
+				} 					
+			}
+			if (count == 0) {
+				sarasas.add(new Zaislas(name, 1));
+			}					
+		} else {
+			sarasas.add(new Zaislas(name, 1));
+		}	
 	}
 
 }
