@@ -1,0 +1,11 @@
+﻿Žaislo Pavadinimas, Kiekis
+Robotas šuniukas, 15
+Žaislinė virtuvė, 20
+Radijo bangomis valdoma mašinėlė, 15
+Stalo žaidimas Monopolis, 7
+Stalo žaidimas "Blowing Kittens", 1
+Riedučiai, 6
+Paspirtukas, 5
+Dviratis, 1
+Anglių maišas, 100
+Žaidimų konsolė "PlayStation4", 15

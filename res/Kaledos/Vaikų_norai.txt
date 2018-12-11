@@ -1,0 +1,6 @@
+﻿Vardas, Pavarde, Amžius, Adresas, Kaledu noras
+Mamartas, Mamertauskas, 4, Sodu g. 2 Kaunas, Didele mašina
+Linas, Mamermtauskas, 5, Sodu g. 2 Kaunas, Pliušinis meškinas
+Gabija, Šakalyte, 7, Kvieciu g. 15 Šiauliai, Vaikiška virtuve
+Petras, Petraitis, 10, Vilniaus g. 50 Vilnius, Robotas šuniukas
+Birutė, Brazauskienė, 69, Kapsų g. 30 Kaunas, Žaislinė virtuvė

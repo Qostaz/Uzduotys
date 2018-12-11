@@ -1,4 +1,4 @@
-package lt.bt.Calculator;
+package lt.bt.Calculator.gridExample;
 
 public class Test {
 
